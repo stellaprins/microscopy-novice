@@ -507,16 +507,19 @@ terminal and pressing the <kbd>Enter</kbd> key.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># This line will create a "virtual environment" (called napari-env)</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co"># that will contain all of the software that will be used in the lessons</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> napari-env <span class="at">-c</span> conda-forge python=3.12 napari pyqt</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co"># Activate the napari-env virtual environment.</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co"># Running this should change the terminal prompt to '(napari-env)'.</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="ex">conda</span> activate napari-env</span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co"># Install czi file reader</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="ex">pip</span> install napari-bioio-reader bioio-czi</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Make sure conda is up to date</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="ex">conda</span> update <span class="at">-n</span> base conda</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># This line will create a "virtual environment" (called napari-env)</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co"># that will contain all of the software that will be used in the lessons</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> napari-env <span class="at">-c</span> conda-forge python=3.12 napari pyqt</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co"># Activate the napari-env virtual environment.</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co"># Running this should change the terminal prompt to '(napari-env)'.</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="ex">conda</span> activate napari-env</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co"># Install czi file reader</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="ex">pip</span> install napari-bioio-reader bioio-czi</span></code></pre>
 </div>
 </div>
 </div>
@@ -630,6 +633,30 @@ may see lots of text printed to the terminal as it downloads these extra
 files. This may take up to 5 minutes - so give it some time. This will
 only happen once, and the <code>czi</code> image will open much faster
 next time.</p>
+<div id="potential-error" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<span class="callout-header">Caution</span>
+<div id="potential-error" class="callout-inner">
+<h3 class="callout-title">Potential error</h3>
+<div class="callout-content">
+<p>On some Windows systems <code>bioio-bioformats</code> dependencies
+prevent <code>czi</code> files from opening in napari. If this is the
+case, napari may crash with the following error message:</p>
+<p><code>failed with error: bioformats does not support the image</code></p>
+<p>Uninstalling the <code>bioio-bioformats</code> reader (which is not
+used in this material) will fix this issue:</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">pip</span> uninstall bioio-bioformats</span></code></pre>
+</div>
+<p>Restart napari and try opening
+<code>Plate1-Blue-A-12-Scene-3-P3-F2-03.czi</code> again.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -705,8 +732,8 @@ any links that you are not going to use.
   "url": "https://HealthBioscienceIDEAS.github.io/microscopy-novice/index.html",
   "identifier": "https://HealthBioscienceIDEAS.github.io/microscopy-novice/index.html",
   "dateCreated": "2023-10-26",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04"
+  "dateModified": "2025-11-10",
+  "datePublished": "2025-11-10"
 }
 
   </script><script>
